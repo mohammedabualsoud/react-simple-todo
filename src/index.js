@@ -9,6 +9,8 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
+// import 'styles/components/all.scss'
+import './style.scss'
 
 
 const store = createStore(

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import 'src/components/Todo/_base.scss'
+import './_base.scss';
+
 class Todo  extends React.Component{
     constructor(props) {
 
@@ -65,9 +66,6 @@ class Todo  extends React.Component{
         return (
             <React.Fragment>
                 <li className={`c-todo-item c-todo-item--${status}`}
-                    style={{
-                        textDecoration: status === 'completed' ? 'line-through' : 'none'
-                    }}
                 >
                     {this.state.updateClicked ? <input type="text" onChange={this.handleChange} name="text" value={this.state.updatedText}/> : <span>{this.state.updatedText}</span>}
 
@@ -78,7 +76,7 @@ class Todo  extends React.Component{
                         <option>active</option>
                         <option>inactive</option>
                         <option>completed</option>
-                        <option>incomplete</option>
+                        <option>incompleted</option>
                     </select>
                 </li>
             </React.Fragment>
