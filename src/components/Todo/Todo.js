@@ -36,7 +36,6 @@ class Todo  extends React.Component{
 
     handleChange(event) {
         const {name, value} = event.target;
-        console.log('handleChange', );
         switch (name) {
             case 'text':
                 this.setState({updatedText: value})
@@ -64,19 +63,28 @@ class Todo  extends React.Component{
         const {status} = this.props
         return (
             <React.Fragment>
-                <li className={`c-todo-item c-todo-item--${status}`}
+                <div className={`c-todo-item u-margin-all c-todo-item--${status}`}
                 >
-                    {this.state.updateClicked ? <input type="text" onChange={this.handleChange} name="text" value={this.state.updatedText}/> : this.state.updatedText}
-                    <button className="u-margin-start-lg" onClick={this.toggleUpdate}>{this.state.updateClicked ? 'Save' : 'Modify'}</button>
-                    {this.state.updateClicked && <button onClick={this.cancelModification}>Cancel Modification</button>}
-                    <button onClick={this.handleRemove}>Remove</button>
-                    <select value={status} name="status" onChange={this.handleChange}>
-                        <option>active</option>
-                        <option>inactive</option>
-                        <option>completed</option>
-                        <option>incompleted</option>
-                    </select>
-                </li>
+                    <div className="c-todo-item__controls u-padding-all">
+
+                        <div className="u-margin-bottom">
+                            {this.state.updateClicked ? <input type="text" onChange={this.handleChange} name="text" value={this.state.updatedText}/> : this.state.updatedText}
+                        </div>
+                        <div className="u-margin-bottom">
+                            <button onClick={this.toggleUpdate}>{this.state.updateClicked ? 'Save' : 'Modify'}</button>
+                            {this.state.updateClicked && <button onClick={this.cancelModification}>Cancel Modification</button>}
+                            <button onClick={this.handleRemove}>Remove</button>
+                            <select value={status} name="status" onChange={this.handleChange}>
+                                <option>active</option>
+                                <option>inactive</option>
+                                <option>completed</option>
+                                <option>incompleted</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
             </React.Fragment>
 
         )

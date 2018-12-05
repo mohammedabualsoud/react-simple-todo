@@ -1,14 +1,18 @@
-import {UPDATE_TODO, ADD_TODO, REMOVE_TODO} from "../actions";
+import {UPDATE_TODO, ADD_TODO, REMOVE_TODO, SET_TODOS} from "../actions";
 
 const todos = (state = [], action) => {
   switch (action.type) {
+
+    case SET_TODOS:
+      return action.todos
+
     case ADD_TODO:
       return [
         ...state,
         {
           id: action.id,
           text: action.text,
-          status: 'active'
+          status: action.status
         }
       ]
       case UPDATE_TODO:
