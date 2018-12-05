@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './_base.scss';
 
 class Todo  extends React.Component{
     constructor(props) {
@@ -67,9 +66,8 @@ class Todo  extends React.Component{
             <React.Fragment>
                 <li className={`c-todo-item c-todo-item--${status}`}
                 >
-                    {this.state.updateClicked ? <input type="text" onChange={this.handleChange} name="text" value={this.state.updatedText}/> : <span>{this.state.updatedText}</span>}
-
-                    <button onClick={this.toggleUpdate}>{this.state.updateClicked ? 'Save' : 'Modify'}</button>
+                    {this.state.updateClicked ? <input type="text" onChange={this.handleChange} name="text" value={this.state.updatedText}/> : this.state.updatedText}
+                    <button className="u-margin-start-lg" onClick={this.toggleUpdate}>{this.state.updateClicked ? 'Save' : 'Modify'}</button>
                     {this.state.updateClicked && <button onClick={this.cancelModification}>Cancel Modification</button>}
                     <button onClick={this.handleRemove}>Remove</button>
                     <select value={status} name="status" onChange={this.handleChange}>
