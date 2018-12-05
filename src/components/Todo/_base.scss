@@ -1,0 +1,19 @@
+body {
+  background-color: red;
+}
+.c-todo-item {
+
+}
+.c-todo-item--active {
+  color: #F6B26B;
+}
+
+.c-todo-item--inactive {
+  color: #E06666;
+}
+.c-todo-item--completed {
+  color: #0E0E0E;
+}
+.c-todo-item--incompleted {
+  color: #FFE599;
+}
