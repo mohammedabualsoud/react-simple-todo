@@ -4,7 +4,6 @@ export const addTodoCommand = (text) => {
     return new Promise((resolve, reject) => {
         getTodosCommand().then((todos) => {
             if (todos && todos.constructor === Array) {
-                debugger
                 const todo = {id: getlastId(), text, status: 'active'}
                 todos.push(todo)
                 updateTodosCommand(todos)
@@ -82,7 +81,6 @@ export const updateTodosCommand = (todos) => {
 
 // return last generated todo id.
 const getlastId = () => {
-    debugger
     let lastId = localStorage.getItem('latestTodoId')
     if (lastId === null) {
         lastId = 0;
